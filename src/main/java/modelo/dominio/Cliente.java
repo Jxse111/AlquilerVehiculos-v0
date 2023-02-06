@@ -1,35 +1,44 @@
 package modelo.dominio;
 
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Cliente {
-    private static final Pattern NOMBRE_PATTERN = Pattern.compile("[A-Z][a-z]+");
-    private static final Pattern DNI_PATTERN = Pattern.compile("[0-9]{8}[A-Z]");
-    private static final Pattern TELEFONO_PATTERN = Pattern.compile("[0-9]{9}");
+    private static final Pattern NOMBRE_VALIDO = Pattern.compile("[A-Z][a-z]+");
+    private static final Pattern DNI_VALIDO = Pattern.compile("[0-9]{8}[A-Z]");
+    private static final Pattern TELEFONO_VALIDO = Pattern.compile("[0-9]{9}");
 
     private String nombre;
     private String dni;
     private String telefono;
 
-    public Cliente(String nombre, String dni, String telefono) {
+    public Cliente(String NOMBRE_VALIDO, String DNI_VALIDO, String TELEFONO_VALIDO) {
         setNombre(nombre);
         setDni(dni);
         setTelefono(telefono);
     }
 
-    private void setTelefono(String telefono2) {
-		// TODO Auto-generated method stub
 		
+	public String getDni() {
+		return dni;
 	}
 
-	private void setDni(String dni2) {
-		// TODO Auto-generated method stub
-		
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
-	public Cliente(Cliente otroCliente) {
-        this(otroCliente.nombre, otroCliente.dni, otroCliente.telefono);
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+
+	public Cliente(Cliente Clienteigual) {
+        this(Clienteigual.nombre, Clienteigual.dni, Clienteigual.telefono);
     }
 
     public String getNombre() {
@@ -38,10 +47,34 @@ public class Cliente {
 
 
     public void setNombre(String nombre) {
-        Matcher matcher = NOMBRE_PATTERN.matcher(nombre);
+        Matcher matcher = NOMBRE_VALIDO.matcher(nombre);
         if (!matcher.matches()) {
             throw new IllegalArgumentException("Nombre no válido");
         }
         this.nombre = nombre;
     }
-}
+
+	public static Cliente getClienteConDni(String dniValido) {
+		return null;
+	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(dni, nombre, telefono);
+	}
+
+
+	public boolean equalsYHasCodeConsistentes(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		return Objects.equals(dni, other.dni) && Objects.equals(nombre, other.nombre)
+				&& Objects.equals(telefono, other.telefono);
+	}
+	
+	}
