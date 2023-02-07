@@ -8,9 +8,6 @@ public class Turismo {
     private static final Pattern patternMatricula = Pattern.compile(PATTERN_MATRICULA);
     private static final int MIN_CILINDRADA = 0;
     private static final int MAX_CILINDRADA = 5000;
-    private static Turismo turismo1;
-    private static Turismo turismo2;
-    private static Turismo turismos;
     private String marca;
     private String modelo;
     private int cilindrada;
@@ -112,3 +109,8 @@ public class Turismo {
                 ", matricula='" + matricula + '\'' +
                 '}';
     }
+
+	public static Turismo getTurismoConMatricula(String matriculaValida) {
+		return null;
+	}
+}

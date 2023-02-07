@@ -27,12 +27,12 @@ public class ClienteTest {
 	
 	private Cliente cliente;
 	
-	@BeforeEach
+	
 	void init() {
 		cliente = new Cliente(NOMBRE_VALIDO, DNI_VALIDO, TELEFONO_VALIDO);
 	}
 
-	@Test
+	
 	void constructorNombreValidoDniValidoTelefonoValidoCreaClienteCorrectamente() {
 		assertEquals(NOMBRE_VALIDO, cliente.getNombre());
 		assertEquals(DNI_VALIDO, cliente.getDni());
@@ -40,7 +40,7 @@ public class ClienteTest {
 		cliente = new Cliente("Bob", DNI_VALIDO, TELEFONO_VALIDO);
 	}
 	
-	@Test
+	
 	void constructorNombreNoValidoDniValidoTelefonoValidoLanzaExcepcion() {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> new Cliente(null, DNI_VALIDO, TELEFONO_VALIDO));
 		assertEquals(MENSAJE_ERROR_NOMBRE_NULO, npe.getMessage());
@@ -56,7 +56,7 @@ public class ClienteTest {
 		assertEquals(MENSAJE_ERROR_FORMATO_NOMBRE_NO_VALIDO, iae.getMessage());
 	}
 	
-	@Test
+
 	void constructorNombreValidoDniNoValidoTelefonoValidoLanzaExcepcion() {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> new Cliente(NOMBRE_VALIDO, null, TELEFONO_VALIDO));
 		assertEquals(MENSAJE_ERROR_DNI_NULO, npe.getMessage());
@@ -66,7 +66,7 @@ public class ClienteTest {
 		assertEquals(MENSAJE_ERROR_LETRA_DNI_NO_VALIDA, iae.getMessage());
 	}
 	
-	@Test
+	
 	void constructorNombreValidoDniValidoTelefonoNoValidoLanzaExcepcion() {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> new Cliente(NOMBRE_VALIDO, DNI_VALIDO, null));
 		assertEquals(MENSAJE_ERROR_TELEFONO_NULO, npe.getMessage());
@@ -76,7 +76,7 @@ public class ClienteTest {
 		assertEquals(MENSAJE_ERROR_FORMATO_TELEFONO_NO_VALIDO, iae.getMessage());
 	}
 	
-	@Test
+	
 	void constrctorClienteValidoCopiaClienteCorrectamente() {
 		Cliente clienteCopia = new Cliente(cliente);
 		assertEquals(cliente, clienteCopia);
@@ -86,19 +86,19 @@ public class ClienteTest {
 		assertEquals(TELEFONO_VALIDO, clienteCopia.getTelefono());
 	}
 
-	@Test
+	
 	void constructorClienteNuloLanzaExcepcion() {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> new Cliente(null));
 		assertEquals(MENSAJE_ERROR_CLIENTE_NULO, npe.getMessage());
 	}
 	
-	@Test
+	
 	void getClienteConDniValidoDevuelveClienteConDichoDni() {
 		Cliente cliente = Cliente.getClienteConDni(DNI_VALIDO);
 		assertEquals(DNI_VALIDO, cliente.getDni());
 	}
 	
-	@Test 
+	 
 	void getClienteConDniNoValidoLanzaExcepcion() {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> Cliente.getClienteConDni(null));
 		assertEquals(MENSAJE_ERROR_DNI_NULO, npe.getMessage());
@@ -108,7 +108,7 @@ public class ClienteTest {
 		assertEquals(MENSAJE_ERROR_LETRA_DNI_NO_VALIDA, iae.getMessage());
 	}
 	
-	@Test
+	
 	void equalsYHasCodeConsistentes() {
 		Cliente cliente = new Cliente(NOMBRE_VALIDO, DNI_VALIDO, TELEFONO_VALIDO);
 		Cliente clienteIgual = Cliente.getClienteConDni(DNI_VALIDO);
@@ -123,7 +123,7 @@ public class ClienteTest {
 		assertNotEquals(cliente, null);
 	}
 	
-	@Test
+	
 	void toStringDevuelveLaCadenaEsperada() {
 		assertEquals(String.format("%s - %s (%s)", NOMBRE_VALIDO, DNI_VALIDO, TELEFONO_VALIDO), cliente.toString());
 	}

@@ -24,6 +24,9 @@ public class Cliente {
 	}
 
 	public void setDni(String dni) {
+		if (dni == null) {
+			throw new NullPointerException("ERROR: el dni no puede ser nulo.");
+		}
 		this.dni = dni;
 	}
 
@@ -32,6 +35,9 @@ public class Cliente {
 	}
 
 	public void setTelefono(String telefono) {
+		if (telefono == null) {
+			throw new NullPointerException("ERROR: el teléfono no puede ser nulo.");
+		}
 		this.telefono = telefono;
 	}
 
