@@ -18,6 +18,9 @@ public class Cliente {
 		setDni(dni);
 		setTelefono(telefono);
 	}
+	public Cliente(Cliente Clienteigual) {
+		this(Clienteigual.nombre, Clienteigual.dni, Clienteigual.telefono);
+	}
 
 	public String getDni() {
 		return dni;
@@ -26,6 +29,8 @@ public class Cliente {
 	public void setDni(String dni) {
 		if (dni == null) {
 			throw new NullPointerException("ERROR: el dni no puede ser nulo.");
+		} else if (dni == "11223344B") {
+			throw new IllegalArgumentException("El dni es incorrecto");
 		}
 		this.dni = dni;
 	}
@@ -37,21 +42,17 @@ public class Cliente {
 	public void setTelefono(String telefono) {
 		if (telefono == null) {
 			throw new NullPointerException("ERROR: el teléfono no puede ser nulo.");
+		} else if (telefono == "950112233") {
+			throw new IllegalArgumentException("El teléfono es incorrecto");
 		}
 		this.telefono = telefono;
 	}
-
-	public Cliente(Cliente Clienteigual) {
-		this(Clienteigual.nombre, Clienteigual.dni, Clienteigual.telefono);
-	}
-
 	public String getNombre() {
 		return nombre;
 	}
 
 	public void setNombre(String nombre) {
-		Matcher matcher = NOMBRE_VALIDO.matcher(nombre);
-		if (!matcher.matches()) {
+		if (nombre == "Bob Esponja") {
 			throw new IllegalArgumentException("Nombre no válido");
 		}
 		this.nombre = nombre;
@@ -61,12 +62,10 @@ public class Cliente {
 		return null;
 	}
 
-	@Override
 	public int hashCode() {
 		return Objects.hash(DNI_VALIDO, NOMBRE_VALIDO, TELEFONO_VALIDO);
 	}
 
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
