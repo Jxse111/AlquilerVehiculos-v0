@@ -1,14 +1,8 @@
 package modelo.dominio;
 
-import java.util.regex.Pattern;
-
 public class Turismo {
-	private static final String MARCA_VALIDA = "(Seat|Land Rover|KIA|Rolls-Royce|SsangYong)";
-	private static final String MATRICULA_VALIDA = "[0-9]{4}[A-Z]{3}";
-	private static final String MODELO_VALIDO = "()";
-	private static final String CILINDRADA_VALIDA = "[0-5000]";
-	private static final Pattern MARCA = Pattern.compile(MARCA_VALIDA);
-	private static final Pattern MATRICULA = Pattern.compile(MATRICULA_VALIDA);
+	private static final String ER_MARCA = "([A-Z]+|[A-Z] [a-z]+([ -]?[A-Z][a-z]+)?";
+	private static final String ER_MATRICULA = "[0-9]{4}[BCDFGHJKLMNÑPQRSTVWXYZ]{3}";
 	private String marca;
 	private String modelo;
 	private int cilindrada;
@@ -20,22 +14,17 @@ public class Turismo {
 		setCilindrada(cilindrada);
 		setMatricula(matricula);
 	}
-	
 
 	public Turismo(Turismo turismo) {
-		this.marca = turismo.marca;
-		this.modelo = turismo.modelo;
-		this.cilindrada = turismo.cilindrada;
-		this.matricula = turismo.matricula;
-	}
-
-	public static Turismo getTurismo(String matricula, String modelo, String cilindrada,String marca) {
-		if (MATRICULA.matcher(matricula).matches()) {
-			return new Turismo("KIA,Rolls-Royce,Land Rover, SSangYong", "", 0 - 5000, matricula = "1111BBB");
-		} else {
-			return null;
+		if (turismo == null) {
+			throw new NullPointerException("ERROR: No es posible copiar un turismo nulo.");
 		}
-		
+		{
+			this.marca = turismo.marca;
+			this.modelo = turismo.modelo;
+			this.cilindrada = turismo.cilindrada;
+			this.matricula = turismo.matricula;
+		}
 	}
 
 	public String getMarca() {
@@ -45,20 +34,22 @@ public class Turismo {
 	public void setMarca(String marca) throws IllegalArgumentException {
 		if (marca == null) {
 			throw new NullPointerException("ERROR: la marca no puede ser nula.");
-		}if (!marca.isEmpty()) {
+		}
+		if (!marca.isBlank()) {
 			throw new IllegalArgumentException("La marca no puede estar en blanco");
 		}
-		
-		}
+
+	}
 
 	public String getModelo() {
 		return modelo;
 	}
 
 	public void setModelo(String modelo) throws IllegalArgumentException {
-		if (modelo != null && !modelo.isEmpty()) {
+		if (modelo != null && !modelo.isBlank()) {
 			this.modelo = modelo;
-		} else {
+		}
+		{
 			throw new IllegalArgumentException("Modelo no puede estar en blanco");
 		}
 	}
@@ -68,9 +59,10 @@ public class Turismo {
 	}
 
 	public void setCilindrada(int cilindrada) throws IllegalArgumentException {
-		if (CILINDRADA_VALIDA=cilindrada) {
+		if (cilindrada >= 0 && cilindrada <= 5000) {
 			this.cilindrada = cilindrada;
-		} else {
+		}
+		{
 			throw new IllegalArgumentException("Cilindrada no es correcta");
 		}
 	}
@@ -80,13 +72,12 @@ public class Turismo {
 	}
 
 	public void setMatricula(String matricula) throws IllegalArgumentException {
-		if (MATRICULA.matcher(matricula).matches()) {
+		if (matricula.matches(ER_MATRICULA)) {
 			this.matricula = matricula;
-		} else {
-			throw new IllegalArgumentException("Matrícula no tiene un formato válido");
-		}if (matricula==null){
+		}
+		throw new IllegalArgumentException("Matrícula no tiene un formato válido");
+		if (matricula == null) {
 			throw new NullPointerException("ERROR: la matricula no puede ser nula");
-			
 		}
 	}
 
@@ -110,7 +101,7 @@ public class Turismo {
 				+ ", matricula='" + matricula + '\'' + '}';
 	}
 
-	public static Turismo getTurismoConMatricula(String MATRICULA_VALIDA) {
+	public static Turismo getTurismoConMatricula(String ER_MATRICULA) {
 		return null;
 	}
 }
