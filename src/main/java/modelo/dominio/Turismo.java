@@ -35,9 +35,6 @@ public class Turismo {
 		if (marca == null) {
 			throw new NullPointerException("ERROR: la marca no puede ser nula.");
 		}
-		if (!marca.isBlank()) {
-			throw new IllegalArgumentException("La marca no puede estar en blanco");
-		}
 
 	}
 
