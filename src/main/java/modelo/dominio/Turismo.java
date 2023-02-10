@@ -5,10 +5,10 @@ import java.util.regex.Pattern;
 public class Turismo {
 	private static final String MARCA_VALIDA = "(Seat|Land Rover|KIA|Rolls-Royce|SsangYong)";
 	private static final String MATRICULA_VALIDA = "[0-9]{4}[A-Z]{3}";
+	private static final String MODELO_VALIDO = "()";
+	private static final String CILINDRADA_VALIDA = "[0-5000]";
 	private static final Pattern MARCA = Pattern.compile(MARCA_VALIDA);
 	private static final Pattern MATRICULA = Pattern.compile(MATRICULA_VALIDA);
-	private static final int MIN_CILINDRADA = 0;
-	private static final int MAX_CILINDRADA = 5000;
 	private String marca;
 	private String modelo;
 	private int cilindrada;
@@ -20,6 +20,7 @@ public class Turismo {
 		setCilindrada(cilindrada);
 		setMatricula(matricula);
 	}
+	
 
 	public Turismo(Turismo turismo) {
 		this.marca = turismo.marca;
@@ -28,12 +29,13 @@ public class Turismo {
 		this.matricula = turismo.matricula;
 	}
 
-	public static Turismo getTurismo(String matricula) {
+	public static Turismo getTurismo(String matricula, String modelo, String cilindrada,String marca) {
 		if (MATRICULA.matcher(matricula).matches()) {
 			return new Turismo("KIA,Rolls-Royce,Land Rover, SSangYong", "", 0 - 5000, matricula = "1111BBB");
 		} else {
 			return null;
 		}
+		
 	}
 
 	public String getMarca() {
@@ -43,10 +45,11 @@ public class Turismo {
 	public void setMarca(String marca) throws IllegalArgumentException {
 		if (marca == null) {
 			throw new NullPointerException("ERROR: la marca no puede ser nula.");
-		}else if (marca == MARCA_VALIDA ) {
-			throw new IllegalArgumentException("La marca no es válida");
+		}if (!marca.isEmpty()) {
+			throw new IllegalArgumentException("La marca no puede estar en blanco");
 		}
-	}
+		
+		}
 
 	public String getModelo() {
 		return modelo;
@@ -65,10 +68,10 @@ public class Turismo {
 	}
 
 	public void setCilindrada(int cilindrada) throws IllegalArgumentException {
-		if (cilindrada > MIN_CILINDRADA && cilindrada <= MAX_CILINDRADA) {
+		if (CILINDRADA_VALIDA=cilindrada) {
 			this.cilindrada = cilindrada;
 		} else {
-			throw new IllegalArgumentException("Cilindrada no válida");
+			throw new IllegalArgumentException("Cilindrada no es correcta");
 		}
 	}
 
@@ -80,7 +83,10 @@ public class Turismo {
 		if (MATRICULA.matcher(matricula).matches()) {
 			this.matricula = matricula;
 		} else {
-			throw new IllegalArgumentException("Matrícula no válida");
+			throw new IllegalArgumentException("Matrícula no tiene un formato válido");
+		}if (matricula==null){
+			throw new NullPointerException("ERROR: la matricula no puede ser nula");
+			
 		}
 	}
 
