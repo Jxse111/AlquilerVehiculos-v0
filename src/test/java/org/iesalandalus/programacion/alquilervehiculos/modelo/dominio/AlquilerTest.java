@@ -18,6 +18,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import modelo.dominio.Alquiler;
+import modelo.dominio.Cliente;
+import modelo.dominio.Turismo;
+
 public class AlquilerTest {
 
 	private static final String MENSAJE_ERROR_CLIENTE_NULO = "ERROR: El cliente no puede ser nulo.";

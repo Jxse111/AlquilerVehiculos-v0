@@ -73,9 +73,6 @@ public class Turismo {
 			this.matricula = matricula;
 		}
 		throw new IllegalArgumentException("Matrícula no tiene un formato válido");
-		if (matricula == null) {
-			throw new NullPointerException("ERROR: la matricula no puede ser nula");
-		}
 	}
 
 	public boolean equals(Object o) {

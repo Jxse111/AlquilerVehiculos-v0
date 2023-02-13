@@ -7,9 +7,9 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class Alquiler {
-    private static final String DATE_FORMAT = "dd/MM/yyyy";
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
-
+    private static final String FORMATO_FECHA = "dd/MM/yyyy";
+    private static final SimpleDateFormat fecha_alquiler = new SimpleDateFormat(FORMATO_FECHA);
+    private static int PRECIO_DIA;
     private Cliente cliente;
     private Turismo turismo;
     private Date fechaAlquiler;
@@ -31,6 +31,9 @@ public class Alquiler {
     }
 
     public void setCliente(Cliente cliente) {
+    	if (cliente==null) {
+    	throw new NullPointerException("ERROR:el cliente no puede ser nulo");
+    	}
         this.cliente = cliente;
     }
 
