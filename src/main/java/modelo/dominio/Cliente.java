@@ -35,7 +35,8 @@ public class Cliente {
 		this.dni = dni;
 	}
 	private String ComprobarLetraDNI(String dni) {
-		
+	return DNI_VALIDO[dni%23];
+	
 	}
 	
 

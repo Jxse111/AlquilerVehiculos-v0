@@ -1,7 +1,7 @@
 package modelo.dominio;
 
 public class Turismo {
-	private static final String ER_MARCA = "([A-Z]+|[A-Z] [a-z]+([ -]?[A-Z][a-z]+)?";
+	private static final String ER_MARCA = "(Seat|Land Rover|KIA|Rolls-Royce|SsangYong)";
 	private static final String ER_MATRICULA = "[0-9]{4}[BCDFGHJKLMNÑPQRSTVWXYZ]{3}";
 	private String marca;
 	private String modelo;
