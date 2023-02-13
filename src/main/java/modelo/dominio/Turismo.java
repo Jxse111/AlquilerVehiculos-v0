@@ -95,7 +95,11 @@ public class Turismo {
 				+ ", matricula='" + matricula + '\'' + '}';
 	}
 
-	public static Turismo getTurismoConMatricula(String ER_MATRICULA) {
-		return null;
+	public static Turismo getTurismoConMatricula(String matricula) {
+		return new Turismo ("Seat","León", 90, matricula);
+	}
+
+	public int getPrecioDiario() {
+		return 0;
 	}
 }

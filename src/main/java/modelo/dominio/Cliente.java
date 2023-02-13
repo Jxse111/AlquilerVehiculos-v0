@@ -34,6 +34,10 @@ public class Cliente {
 		}
 		this.dni = dni;
 	}
+	private String ComprobarLetraDNI(String dni) {
+		
+	}
+	
 
 	public String getTelefono() {
 		return telefono;
@@ -59,7 +63,7 @@ public class Cliente {
 	}
 
 	public static Cliente getClienteConDni(String dni) {
-		return null;
+		return new Cliente("Bob Esponja",dni,"950112233");
 	}
 
 	public int hashCode() {
