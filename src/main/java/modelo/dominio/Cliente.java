@@ -35,7 +35,7 @@ public class Cliente {
 		this.dni = dni;
 	}
 	private String ComprobarLetraDNI(String dni) {
-	return DNI_VALIDO[dni%23];
+	return DNI_VALIDO[dni/23];
 	
 	}
 	
@@ -81,6 +81,11 @@ public class Cliente {
 		Cliente other = (Cliente) obj;
 		return Objects.equals(DNI_VALIDO, other.dni) && Objects.equals(NOMBRE_VALIDO, other.nombre)
 				&& Objects.equals(TELEFONO_VALIDO, other.telefono);
+	}
+	public String toString() {
+		return "Cliente [nombre=" + nombre + ", dni=" + dni + ", telefono=" + telefono + ", getDni()=" + getDni()
+				+ ", getTelefono()=" + getTelefono() + ", getNombre()=" + getNombre() + ", hashCode()=" + hashCode()
+				+ ", getClass()=" + getClass() + ", toString()=" + super.toString() + "]";
 	}
 
 }

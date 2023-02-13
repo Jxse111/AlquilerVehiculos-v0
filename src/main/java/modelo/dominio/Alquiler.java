@@ -1,8 +1,6 @@
 package modelo.dominio;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -15,16 +13,14 @@ public class Alquiler {
 	private Date fechaAlquiler;
 	private Date fechaDevolucion;
 
-	public Alquiler(Cliente cliente, Turismo turismo, Date fechaAlquiler, Date fechaDevolucion) {
+	public Alquiler(Cliente cliente, Turismo turismo, Date fechaAlquiler) {
 		setCliente(cliente);
 		setTurismo(turismo);
 		setFechaAlquiler(fechaAlquiler);
-		setFechaDevolucion(fechaDevolucion);
 	}
 
 	public Alquiler(Alquiler alquiler) {
-		this(new Cliente(alquiler.getCliente()), new Turismo(alquiler.getTurismo()), alquiler.getFechaAlquiler(),
-				alquiler.getFechaDevolucion());
+		this(new Cliente(alquiler.getCliente()), new Turismo(alquiler.getTurismo()), alquiler.getFechaAlquiler());
 	}
 
 	public Cliente getCliente() {
@@ -95,6 +91,14 @@ public class Alquiler {
 		Alquiler other = (Alquiler) obj;
 		return Objects.equals(cliente, other.cliente) && Objects.equals(fechaAlquiler, other.fechaAlquiler)
 				&& Objects.equals(fechaDevolucion, other.fechaDevolucion) && Objects.equals(turismo, other.turismo);
+	
+	}
+	public String toString() {
+		return "Alquiler [cliente=" + cliente + ", turismo=" + turismo + ", fechaAlquiler=" + fechaAlquiler
+				+ ", fechaDevolucion=" + fechaDevolucion + ", getCliente()=" + getCliente() + ", getTurismo()="
+				+ getTurismo() + ", getFechaAlquiler()=" + getFechaAlquiler() + ", getFechaDevolucion()="
+				+ getFechaDevolucion() + ", getPrecio()=" + getPrecio() + ", hashCode()=" + hashCode() + ", getClass()="
+				+ getClass() + ", toString()=" + super.toString() + "]";
 	}
 
 }

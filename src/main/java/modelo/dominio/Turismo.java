@@ -91,8 +91,11 @@ public class Turismo {
 	}
 
 	public String toString() {
-		return "Turismo{" + "marca='" + marca + '\'' + ", modelo='" + modelo + '\'' + ", cilindrada=" + cilindrada
-				+ ", matricula='" + matricula + '\'' + '}';
+		return "Turismo [marca=" + marca + ", modelo=" + modelo + ", cilindrada=" + cilindrada + ", matricula="
+				+ matricula + ", getMarca()=" + getMarca() + ", getModelo()=" + getModelo() + ", getCilindrada()="
+				+ getCilindrada() + ", getMatricula()=" + getMatricula() + ", hashCode()=" + hashCode()
+				+ ", getPrecioDiario()=" + getPrecioDiario() + ", getClass()=" + getClass() + ", toString()="
+				+ super.toString() + "]";
 	}
 
 	public static Turismo getTurismoConMatricula(String matricula) {
@@ -101,5 +104,6 @@ public class Turismo {
 
 	public int getPrecioDiario() {
 		return 0;
+		
 	}
 }
