@@ -1,13 +1,11 @@
 package modelo.dominio;
-
-import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class Alquiler {
-	private static final String FORMATO_FECHA = "dd/MM/yyyy";
-	private static final SimpleDateFormat fecha_alquiler = new SimpleDateFormat(FORMATO_FECHA);
+	private static DateTimeFormatter FORMATO_FECHA;
 	private Cliente cliente;
 	private Turismo turismo;
 	private Date fechaAlquiler;

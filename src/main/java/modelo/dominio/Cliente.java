@@ -35,7 +35,8 @@ public class Cliente {
 		this.dni = dni;
 	}
 	private String ComprobarLetraDNI(String dni) {
-	return DNI_VALIDO[dni/23];
+		char[] DNI = {'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
+		 char comprobarletradni = DNI_VALIDO[dni % 23];
 	
 	}
 	
