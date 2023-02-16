@@ -32,11 +32,11 @@ public class Cliente {
 		} else if (dni == "11223344B") {
 			throw new IllegalArgumentException("El dni es incorrecto");
 		}
-		this.dni = dni;
+		this.dni =       dni;
 	}
 	private String ComprobarLetraDNI(String dni) {
 		char[] DNI = {'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
-		 char comprobarletradni = DNI_VALIDO[dni % 23];
+		 char ComprobarLetraDNI = DNI_VALIDO[dni % 23];
 	
 	}
 	
