@@ -1,4 +1,4 @@
-package modelo.dominio;
+package org.iesalandalus.programacion.alquilervehiculos.modelo.dominio;
 
 public class Turismo {
 	private static final String ER_MARCA = "(Seat|Land Rover|KIA|Rolls-Royce|SsangYong)";

@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Turismo;
+
 import modelo.dominio.Alquiler;
 import modelo.dominio.Cliente;
-import modelo.dominio.Turismo;
 
 public class modelo {
 	private List<Cliente> listaClientes;

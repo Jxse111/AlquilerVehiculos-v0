@@ -20,7 +20,6 @@ import org.junit.jupiter.api.Test;
 
 import modelo.dominio.Alquiler;
 import modelo.dominio.Cliente;
-import modelo.dominio.Turismo;
 
 public class AlquilerTest {
 
