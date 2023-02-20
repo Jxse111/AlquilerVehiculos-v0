@@ -122,7 +122,7 @@ public class Alquiler {
 
 	}
 
-	private Object getPrecio() {
+	Object getPrecio() {
 		// TODO Auto-generated method stub
 		return null;
 	}
