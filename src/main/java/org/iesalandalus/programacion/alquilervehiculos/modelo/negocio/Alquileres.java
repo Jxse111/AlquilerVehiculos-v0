@@ -16,7 +16,7 @@ public class Alquileres {
 
 	public Alquileres() {
 
-		coleccionAlquileres = new ArrayList<>(); // creando la lista
+		coleccionAlquileres = new ArrayList<>(); 
 
 	}
 	
@@ -40,19 +40,18 @@ public class Alquileres {
 
 	public List<Alquiler> get(Turismo turismo) {
 
-		List<Alquiler> listaNuevaTurismo = new ArrayList<>(); // creo una nueva list
+		List<Alquiler> listaNuevaTurismo = new ArrayList<>(); 
 
-		for (Alquiler alquiler : coleccionAlquileres) { // recorro la lista
+		for (Alquiler alquiler : coleccionAlquileres) { 
 			if (alquiler.getTurismo().equals(turismo)) {
-				// Si el turismo del alquiler es el mismo turismo que pasamos por parametro lo
-				// almacenamos?
+				
 				listaNuevaTurismo.add(alquiler);
 
 				
 			}
 				 
 		}
-		return listaNuevaTurismo; // devolvemos la lista. NOSE SI ESTA BIEN TODO LO QUE HE HECHO.
+		return listaNuevaTurismo; 
 
 	}
 
@@ -65,8 +64,7 @@ public class Alquileres {
 	private void comprobarAlquiler(Cliente cliente, Turismo turismo, LocalDate fechaAlquiler)
 			throws OperationNotSupportedException {
 		for (Alquiler alquiler : coleccionAlquileres) {
-			// con equal compruebo si el el objeto cliente y turismo pasados son los mismos
-			// que los objetors y turismos de alquiler.
+			
 			if (alquiler.getFechaDevolucion() == null) {
 
 				if (alquiler.getCliente().equals(cliente)) {
@@ -78,7 +76,7 @@ public class Alquileres {
 				}
 
 			} else {
-				// alquileres que son devueltos
+				
 				if (alquiler.getCliente().equals(cliente) && (alquiler.getFechaDevolucion().isAfter(fechaAlquiler)
 						|| alquiler.getFechaDevolucion().isEqual(fechaAlquiler))) {
 					throw new OperationNotSupportedException("ERROR: El cliente tiene un alquiler posterior.");
@@ -129,14 +127,14 @@ public class Alquileres {
 		}
 
 		
-		if (coleccionAlquileres.indexOf(alquiler) == -1) { // El -1 en un numerico es como si fuera null, por lo tanto si es diferente de
+		if (coleccionAlquileres.indexOf(alquiler) == -1) { 
 											// null
-			alquiler=null;  // Cogemos el indice del alquiler
+			alquiler=null;  
 		}else {
 			coleccionAlquileres.get(coleccionAlquileres.indexOf(alquiler));
 		}
 
-		return alquiler; // devolvemos el valor que hay dentro del indice de la lista.
+		return alquiler; 
 
 	}
 
@@ -146,7 +144,7 @@ public class Alquileres {
 			throw new NullPointerException("ERROR: No se puede borrar un alquiler nulo.");
 		}
 
-		if (coleccionAlquileres.contains(alquiler)) { // si existe en la lista
+		if (coleccionAlquileres.contains(alquiler)) { 
 			coleccionAlquileres.remove(alquiler);
 		}else {
 			throw new OperationNotSupportedException("ERROR: No existe ningún alquiler igual.");

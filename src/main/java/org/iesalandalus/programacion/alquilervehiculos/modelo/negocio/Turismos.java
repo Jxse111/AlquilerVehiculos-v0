@@ -8,44 +8,44 @@ import javax.naming.OperationNotSupportedException;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Turismo;
 
 public class Turismos {
-	
-	List<Turismo> coleccionTurismo; 
-	
-	public Turismos () {
-		
-		coleccionTurismo = new ArrayList<>(); // creando la lista
-		
+
+	List<Turismo> coleccionTurismo;
+
+	public Turismos() {
+
+		coleccionTurismo = new ArrayList<>(); 
+
 	}
-	
+
 	public List<Turismo> get() {
 
 		return coleccionTurismo;
 	}
 
-	public int getCantidad () {
-		
+	public int getCantidad() {
+
 		int cantidadElementos = 0;
 		for (Turismo turismos : coleccionTurismo) {
 
 			cantidadElementos++;
 		}
 
-		return cantidadElementos; // devuelvo el numero de elementos que contiene la lista
+		return cantidadElementos; 
 	}
-	
-	public void insertar(Turismo turismo ) throws OperationNotSupportedException {
-	
+
+	public void insertar(Turismo turismo) throws OperationNotSupportedException {
+
 		if (turismo == null) {
 			throw new NullPointerException("ERROR: No se puede insertar un turismo nulo.");
 		}
-		
+
 		if (!coleccionTurismo.contains(turismo)) {
 			coleccionTurismo.add(turismo);
-		}else {
+		} else {
 			throw new OperationNotSupportedException("ERROR: Ya existe un turismo con esa matrícula.");
 		}
 	}
-	
+
 	public Turismo buscar(Turismo turismo) {
 
 		if (turismo == null) {
@@ -56,31 +56,23 @@ public class Turismos {
 			turismo = null;
 		}
 		return turismo;
-		
 
 	}
-	
+
 	public void borrar(Turismo turismo) throws OperationNotSupportedException {
 
 		if (turismo == null) {
 			throw new NullPointerException("ERROR: No se puede borrar un turismo nulo.");
 		}
 
-		if (coleccionTurismo.contains(turismo)) { // si existe el turismo.
+		if (coleccionTurismo.contains(turismo)) { 
 
 			coleccionTurismo.remove(turismo);
 
-		} else { // si el turismo no existe
+		} else { 
 			throw new OperationNotSupportedException("ERROR: No existe ningún turismo con esa matrícula.");
 		}
 
 	}
-	
-	
-			
-	}
 
-		
-	
-	
-	
+}
