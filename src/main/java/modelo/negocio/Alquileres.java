@@ -2,8 +2,6 @@ package modelo.negocio;
 
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Clientes;
-import modelo.Turismos;
 import modelo.dominio.Alquiler;
 
 public class Alquileres {

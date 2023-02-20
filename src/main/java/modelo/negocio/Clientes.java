@@ -5,7 +5,7 @@ import java.util.List;
 
 import modelo.dominio.Cliente;
 
-public class Clientes {
+public class Clientes {		
 
 	private List<Cliente> clientes;
 
