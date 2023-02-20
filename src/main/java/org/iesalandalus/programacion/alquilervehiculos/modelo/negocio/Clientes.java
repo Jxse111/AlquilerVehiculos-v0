@@ -12,7 +12,7 @@ public class Clientes {
 	List<Cliente> coleccionClientes;
 
 	public Clientes() {
-		coleccionClientes = new ArrayList<>(); // creando la lista
+		coleccionClientes = new ArrayList<>();
 	}
 
 	public List<Cliente> get() {
@@ -20,7 +20,7 @@ public class Clientes {
 		return coleccionClientes;
 	}
 
-	public int getCantidad() { // tengo que recorrer la lista y incrementar en cada paso
+	public int getCantidad() {
 
 		int cantidadElementos = 0;
 		for (Cliente cliente : coleccionClientes) {
@@ -28,7 +28,7 @@ public class Clientes {
 			cantidadElementos++;
 		}
 
-		return cantidadElementos; // devuelvo el numero de elementos que contiene la lista
+		return cantidadElementos;
 
 	}
 
@@ -39,7 +39,7 @@ public class Clientes {
 		}
 		if (!coleccionClientes.contains(cliente)) {
 			coleccionClientes.add(cliente);
-		}else {
+		} else {
 			throw new OperationNotSupportedException("ERROR: Ya existe un cliente con ese DNI.");
 		}
 	}
@@ -63,21 +63,15 @@ public class Clientes {
 			throw new NullPointerException("ERROR: No se puede borrar un cliente nulo.");
 		}
 
-		if (coleccionClientes.contains(cliente)) { // si existe el cliente.
+		if (coleccionClientes.contains(cliente)) {
 
 			coleccionClientes.remove(cliente);
 
-		} else { // si el cliente no existe
+		} else {
 			throw new OperationNotSupportedException("ERROR: No existe ningún cliente con ese DNI.");
 		}
 
 	}
-
-	/*
-	 * Crea el método modificar que permitirá cambiar el nombre o el teléfono (si
-	 * estos parámetros no son nulos ni blancos) de un cliente existente y si no
-	 * lanzará la correspondiente excepción.
-	 */
 
 	public void modificar(Cliente cliente, String nombre, String telefono) throws OperationNotSupportedException {
 
@@ -85,22 +79,20 @@ public class Clientes {
 			throw new NullPointerException("ERROR: No se puede modificar un cliente nulo.");
 		}
 
-		if (telefono != null && !telefono.isBlank()) { // si el telefono no es nulo ni tampoco tiene espacios en blanco
+		if (telefono != null && !telefono.isBlank()) {
 
 			cliente.setTelefono(telefono);
-			
 
 		}
-		if (nombre != null && !nombre.isBlank()) { // si el nombre es diferente a nulo y no tiene espacios ya que lo
-													// quito con el isBlank
+		if (nombre != null && !nombre.isBlank()) {
 
-				cliente.setNombre(nombre);
-		} 
-		
-			if (!coleccionClientes.contains(cliente)) {
-				throw new OperationNotSupportedException("ERROR: No existe ningún cliente con ese DNI.");
-			}
-		
+			cliente.setNombre(nombre);
+		}
+
+		if (!coleccionClientes.contains(cliente)) {
+			throw new OperationNotSupportedException("ERROR: No existe ningún cliente con ese DNI.");
+		}
+
 	}
 
 }

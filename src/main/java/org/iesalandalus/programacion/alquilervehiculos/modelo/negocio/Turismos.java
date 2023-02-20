@@ -13,7 +13,7 @@ public class Turismos {
 
 	public Turismos() {
 
-		coleccionTurismo = new ArrayList<>(); 
+		coleccionTurismo = new ArrayList<>();
 
 	}
 
@@ -30,7 +30,7 @@ public class Turismos {
 			cantidadElementos++;
 		}
 
-		return cantidadElementos; 
+		return cantidadElementos;
 	}
 
 	public void insertar(Turismo turismo) throws OperationNotSupportedException {
@@ -65,11 +65,11 @@ public class Turismos {
 			throw new NullPointerException("ERROR: No se puede borrar un turismo nulo.");
 		}
 
-		if (coleccionTurismo.contains(turismo)) { 
+		if (coleccionTurismo.contains(turismo)) {
 
 			coleccionTurismo.remove(turismo);
 
-		} else { 
+		} else {
 			throw new OperationNotSupportedException("ERROR: No existe ningún turismo con esa matrícula.");
 		}
 

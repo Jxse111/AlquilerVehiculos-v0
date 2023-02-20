@@ -16,42 +16,40 @@ public class Alquileres {
 
 	public Alquileres() {
 
-		coleccionAlquileres = new ArrayList<>(); 
+		coleccionAlquileres = new ArrayList<>();
 
 	}
-	
+
 	public List<Alquiler> get() {
 		return coleccionAlquileres;
 	}
-	
 
 	public List<Alquiler> get(Cliente cliente) {
-		
-		List<Alquiler> listaNuevaCliente = new ArrayList<>();
-		
-			for (Alquiler alquiler : coleccionAlquileres) {
-				if (alquiler.getCliente().equals(cliente)) {
-					listaNuevaCliente.add(alquiler);
-				}
-			}
-			return listaNuevaCliente;
 
+		List<Alquiler> listaNuevaCliente = new ArrayList<>();
+
+		for (Alquiler alquiler : coleccionAlquileres) {
+			if (alquiler.getCliente().equals(cliente)) {
+				listaNuevaCliente.add(alquiler);
 			}
+		}
+		return listaNuevaCliente;
+
+	}
 
 	public List<Alquiler> get(Turismo turismo) {
 
-		List<Alquiler> listaNuevaTurismo = new ArrayList<>(); 
+		List<Alquiler> listaNuevaTurismo = new ArrayList<>();
 
-		for (Alquiler alquiler : coleccionAlquileres) { 
+		for (Alquiler alquiler : coleccionAlquileres) {
 			if (alquiler.getTurismo().equals(turismo)) {
-				
+
 				listaNuevaTurismo.add(alquiler);
 
-				
 			}
-				 
+
 		}
-		return listaNuevaTurismo; 
+		return listaNuevaTurismo;
 
 	}
 
@@ -64,7 +62,7 @@ public class Alquileres {
 	private void comprobarAlquiler(Cliente cliente, Turismo turismo, LocalDate fechaAlquiler)
 			throws OperationNotSupportedException {
 		for (Alquiler alquiler : coleccionAlquileres) {
-			
+
 			if (alquiler.getFechaDevolucion() == null) {
 
 				if (alquiler.getCliente().equals(cliente)) {
@@ -76,7 +74,7 @@ public class Alquileres {
 				}
 
 			} else {
-				
+
 				if (alquiler.getCliente().equals(cliente) && (alquiler.getFechaDevolucion().isAfter(fechaAlquiler)
 						|| alquiler.getFechaDevolucion().isEqual(fechaAlquiler))) {
 					throw new OperationNotSupportedException("ERROR: El cliente tiene un alquiler posterior.");
@@ -89,7 +87,7 @@ public class Alquileres {
 		}
 	}
 
-	public void insertar(Alquiler alquiler) throws OperationNotSupportedException  {
+	public void insertar(Alquiler alquiler) throws OperationNotSupportedException {
 
 		if (alquiler == null) {
 			throw new NullPointerException("ERROR: No se puede insertar un alquiler nulo.");
@@ -100,21 +98,19 @@ public class Alquileres {
 			coleccionAlquileres.add(alquiler);
 		}
 
-		
-
 	}
 
-	public void devolver(Alquiler alquiler , LocalDate fechaDevolucion) throws OperationNotSupportedException {
+	public void devolver(Alquiler alquiler, LocalDate fechaDevolucion) throws OperationNotSupportedException {
 
 		if (alquiler == null) {
 			throw new NullPointerException("ERROR: No se puede devolver un alquiler nulo.");
 		}
 
 		if (coleccionAlquileres.contains(alquiler)) {
-			
+
 			alquiler.devolver(fechaDevolucion);
-			
-		}else {
+
+		} else {
 			throw new OperationNotSupportedException("ERROR: No existe ningún alquiler igual.");
 		}
 
@@ -126,15 +122,14 @@ public class Alquileres {
 			throw new NullPointerException("ERROR: No se puede buscar un alquiler nulo.");
 		}
 
-		
-		if (coleccionAlquileres.indexOf(alquiler) == -1) { 
-											// null
-			alquiler=null;  
-		}else {
+		if (coleccionAlquileres.indexOf(alquiler) == -1) {
+			// null
+			alquiler = null;
+		} else {
 			coleccionAlquileres.get(coleccionAlquileres.indexOf(alquiler));
 		}
 
-		return alquiler; 
+		return alquiler;
 
 	}
 
@@ -144,13 +139,12 @@ public class Alquileres {
 			throw new NullPointerException("ERROR: No se puede borrar un alquiler nulo.");
 		}
 
-		if (coleccionAlquileres.contains(alquiler)) { 
+		if (coleccionAlquileres.contains(alquiler)) {
 			coleccionAlquileres.remove(alquiler);
-		}else {
+		} else {
 			throw new OperationNotSupportedException("ERROR: No existe ningún alquiler igual.");
 		}
 
-		
 	}
 
 }
