@@ -11,5 +11,5 @@ public class MainApp {
 		Controlador controlador = new Controlador(new Modelo(), vista);
 		controlador.comenzar();
 	}
-
+	
 }
