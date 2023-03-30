@@ -72,7 +72,7 @@ public class Cliente {
 	}
 
 	public static Cliente getClienteConDni(String dni) {
-		return new Cliente ("Yasin", dni, "617889628");
+		return new Cliente ("Bob Esponja", dni, "617889628");
 	}
 
 	@Override
